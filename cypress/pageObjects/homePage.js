@@ -62,4 +62,16 @@ export class HomePage extends BasePage {
   static get submitButton() {
     return cy.get('#submitButton');
   }
+
+  static get cardAmount(){
+    return cy.get('[class="mdc-card"]');
+  }
+
+  static get itemsPerPage(){
+    return cy.get('[class="mat-mdc-paginator-touch-target"]');
+  }
+
+  static get itemsPerPageDropdown(){
+    return cy.get("[role='option']");
+  }
 }
