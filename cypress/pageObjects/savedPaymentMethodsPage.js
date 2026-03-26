@@ -6,6 +6,10 @@ export class SavedPaymentMethodsPage extends BasePage {
   }
 
   static get nameField(){
-    return cy.get('input[aria-describedby="mat-mdc-error-28"]');
+    return cy.get("[role='region'] input").eq(0);
+  }
+
+  static get cardNumberField(){
+    return cy.get("[role='region'] input").eq(1);
   }
 }

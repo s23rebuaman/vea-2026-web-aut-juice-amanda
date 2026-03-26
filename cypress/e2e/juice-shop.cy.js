@@ -285,8 +285,9 @@ describe('Juice-shop scenarios', () => {
       // Fill in Name
       SavedPaymentMethodsPage.nameField.type('Alice');
       // Fill in Card Number
-      
+      SavedPaymentMethodsPage.cardNumberField.type('1234567887654321');
       // Set expiry month to 7
+      
       // Set expiry year to 2090
       // Click Submit button
       // Validate that the card shows up in the list
