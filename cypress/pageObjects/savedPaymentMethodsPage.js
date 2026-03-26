@@ -5,35 +5,27 @@ export class SavedPaymentMethodsPage extends BasePage {
     return cy.get('[class="mat-expansion-panel-header-title"]');
   }
 
-  static get nameField(){
+  static get nameField() {
     return cy.get("[role='region'] input").eq(0);
   }
 
-  static get cardNumberField(){
+  static get cardNumberField() {
     return cy.get("[role='region'] input").eq(1);
   }
 
-  static get expiryMonthField(){
-    return cy.get('select[class="mat-mdc-form-field-infix"]');
+  static get expiryMonthField() {
+    return cy.get("[role='region'] select").eq(0);
   }
 
-  static get expiryMonthFieldDropdown(){
-    return cy.get("[role='option']");
+  static get expiryYearField() {
+    return cy.get("[role='region'] select").eq(1);
   }
 
-  static get expiryYearField(){
-    return cy.get('select[class="mat-mdc-form-field-infix"]');
+  static get submitButton() {
+    return cy.get('#submitButton');
   }
 
-  static get expiryYearFieldDropdown(){
-    return cy.get("[role='option']");
-  }
-
-  static get submitButton(){
-    return cy.get('');
-  }
-
-  static get mySavedPaymentOptionBoxInfo(){
-    return cy.get('');
+  static get mySavedPaymentOptionBoxInfo() {
+    return cy.get("[role='table']");
   }
 }
