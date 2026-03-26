@@ -1,4 +1,5 @@
 import { BasketPage } from '../pageObjects/basketPage';
+import { CreateAddressPage } from '../pageObjects/createAddressPage';
 import { DeliveryMethodPage } from '../pageObjects/deliveryMethodPage';
 import { HomePage } from '../pageObjects/HomePage';
 import { LoginPage } from '../pageObjects/loginPage';
@@ -241,7 +242,7 @@ describe('Juice-shop scenarios', () => {
     });
 
     // Create scenario - Add address
-    it.only('Add address', () => {
+    it('Add address', () => {
       // Click on Account
       HomePage.accountButton.click();
       // Click on Orders & Payment
@@ -253,8 +254,20 @@ describe('Juice-shop scenarios', () => {
       SavedAddressesPage.addNewAddressButton.click();
       // Create page object - CreateAddressPage
       // Fill in the necessary information
+      CreateAddressPage.countryField.type('United Fakedom');
+      CreateAddressPage.nameField.type('Alice Wonderland');
+      CreateAddressPage.mobileNumberField.type('09876567890');
+      CreateAddressPage.zipcodeField.type('12321');
+      CreateAddressPage.addressField.type('Rabbit street 347');
+      CreateAddressPage.cityField.type('Mocktown');
+      CreateAddressPage.stateField.type('Testilvania');
       // Click Submit button
+      CreateAddressPage.submitButton.click();
       // Validate that previously added address is visible
+      CreateAddressPage.mySavedAddressesBoxInfo.should(
+        "contain.text",
+        'Alice Wonderland'
+      );
     });
 
     // Create scenario - Add payment option
