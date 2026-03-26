@@ -1,8 +1,8 @@
-import { BasePage } from "../pageObjects/basePage";
+import { BasePage } from '../pageObjects/basePage';
 
 export class HomePage extends BasePage {
   static get url() {
-    return "/#/";
+    return '/#/';
   }
 
   static get dismissButton() {
@@ -21,35 +21,41 @@ export class HomePage extends BasePage {
     return cy.get('#navbarLoginButton');
   }
 
-  static get userProfileButton(){
+  static get userProfileButton() {
     return cy.get("button[aria-label='Go to user profile']").find('span');
   }
 
-  static get searchIcon(){
+  static get searchIcon() {
     return cy.get('#searchQuery');
   }
 
-  static get searchField(){
+  static get searchField() {
     return cy.get('#searchQuery input');
   }
 
-  static get productNames(){
-    return cy.get('[class="mat-grid-tile ng-star-inserted"]').find('[class="info-box"]');
+  static get productNames() {
+    return cy
+      .get('[class="mat-grid-tile ng-star-inserted"]')
+      .find('[class="info-box"]');
   }
 
-  static get productBoxInfo(){
+  static get productBoxInfo() {
     return cy.get('mat-dialog-content .details-row');
   }
 
-  static get closeButton(){
+  static get closeButton() {
     return cy.get('.close-dialog');
   }
 
-  static get expandReviews(){
+  static get expandReviews() {
     return cy.get('[class="mat-expansion-indicator ng-star-inserted"]');
   }
 
-  static get reviewBoxInfo(){
+  static get reviewBoxInfo() {
     return cy.get('[class="mat-expansion-panel-content"]');
+  }
+
+  static get reviewField() {
+    return cy.get('[aria-label="Text field to review a product"]');
   }
 }
