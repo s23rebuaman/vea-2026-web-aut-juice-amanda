@@ -63,23 +63,31 @@ export class HomePage extends BasePage {
     return cy.get('#submitButton');
   }
 
-  static get cardAmount(){
+  static get cardAmount() {
     return cy.get('[class="mdc-card"]');
   }
 
-  static get itemsPerPage(){
+  static get itemsPerPage() {
     return cy.get('[class="mat-mdc-paginator-touch-target"]');
   }
 
-  static get itemsPerPageDropdown(){
+  static get itemsPerPageDropdown() {
     return cy.get("[role='option']");
   }
 
-  static get addToBasketButton(){
+  static get addToBasketButton() {
     return cy.get('button[aria-label="Add to Basket"]');
   }
 
-  static get yourBasketButton(){
+  static get yourBasketButton() {
     return cy.get('button[aria-label="Show the shopping cart"]');
+  }
+
+  static get ordersAndPaymentButton() {
+    return cy.get('button[aria-label="Show Orders and Payment Menu"]');
+  }
+
+  static get mySavedAddressButton() {
+    return cy.get('button[aria-label="Go to saved address page"]');
   }
 }
