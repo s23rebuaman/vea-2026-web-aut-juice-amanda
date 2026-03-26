@@ -128,7 +128,9 @@ describe('Juice-shop scenarios', () => {
       // Select a product card - OWASP Juice Shop "King of the Hill" Facemask
       HomePage.productNames.contains('OWASP Juice Shop "King of the Hill" Facemask').click();
       // Click expand reviews button/icon (wait for reviews to appear)
+      HomePage.expandReviews.click();
       // Validate review - K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!
+      HomePage.reviewBoxInfo.should('contain.text', 'K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!');
     });
 
     // Create scenario - Add a review

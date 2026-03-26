@@ -44,4 +44,12 @@ export class HomePage extends BasePage {
   static get closeButton(){
     return cy.get('.close-dialog');
   }
+
+  static get expandReviews(){
+    return cy.get('[class="mat-expansion-indicator ng-star-inserted"]');
+  }
+
+  static get reviewBoxInfo(){
+    return cy.get('[class="mat-expansion-panel-content"]');
+  }
 }
