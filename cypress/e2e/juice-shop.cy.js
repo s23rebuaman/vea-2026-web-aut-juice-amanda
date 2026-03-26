@@ -1,4 +1,5 @@
 import { BasketPage } from '../pageObjects/basketPage';
+import { DeliveryMethodPage } from '../pageObjects/deliveryMethodPage';
 import { HomePage } from '../pageObjects/HomePage';
 import { LoginPage } from '../pageObjects/loginPage';
 import { RegistrationPage } from '../pageObjects/registrationPage';
@@ -208,9 +209,16 @@ describe('Juice-shop scenarios', () => {
       );
       SelectAddressPage.addressButton.click();
       // Click Continue button
+      SelectAddressPage.continueButton.click();
       // Create page object - DeliveryMethodPage
       // Select delivery speed Standard Delivery
+      DeliveryMethodPage.deliveryBoxInfo.should(
+        'contain.text',
+        'Standard Delivery'
+      );
+      DeliveryMethodPage.deliveryButton.click();
       // Click Continue button
+      DeliveryMethodPage.continueButton.click();
       // Create page object - PaymentOptionsPage
       // Select card that ends with "5678"
       // Click Continue button
