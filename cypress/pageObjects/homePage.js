@@ -74,4 +74,8 @@ export class HomePage extends BasePage {
   static get itemsPerPageDropdown(){
     return cy.get("[role='option']");
   }
+
+  static get addToBasketButton(){
+    return cy.get('button[aria-label="Add to Basket"]');
+  }
 }
