@@ -56,7 +56,7 @@ export class HomePage extends BasePage {
   }
 
   static get reviewField() {
-    return cy.get('textarea[aria-label="Text field to review a product"]');
+    return cy.get('textarea[placeholder="What did you like or dislike?"]');
   }
 
   static get submitButton() {
@@ -85,6 +85,10 @@ export class HomePage extends BasePage {
 
   static get ordersAndPaymentButton() {
     return cy.get('button[aria-label="Show Orders and Payment Menu"]');
+  }
+
+  static get mySavedAddressButton() {
+    return cy.get('button[aria-label="Go to saved address page"]');
   }
 
   static get myPaymentOptionsButton() {

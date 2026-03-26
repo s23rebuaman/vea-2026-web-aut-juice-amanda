@@ -153,6 +153,7 @@ describe('Juice-shop scenarios', () => {
         .click();
       // Click expand reviews button/icon (wait for reviews to appear)
       HomePage.expandReviews.click();
+      cy.get('.review-text p').should('be.visible');
       // Validate review - K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!
       HomePage.reviewBoxInfo.should(
         'contain.text',
@@ -169,11 +170,13 @@ describe('Juice-shop scenarios', () => {
       // Select a product card - Raspberry Juice (1000ml)
       HomePage.productNames.contains('Raspberry Juice (1000ml)').click();
       // Type in review - "Tastes like metal"
+      cy.wait(250);
       HomePage.reviewField.type('Tastes like metal');
       // Click Submit
       HomePage.submitButton.click();
       // Click expand reviews button/icon (wait for reviews to appear)
       HomePage.expandReviews.click();
+      cy.get('.review-text p').should('be.visible');
       // Validate review -  "Tastes like metal"
       HomePage.reviewBoxInfo.should('contain.text', 'Tastes like metal');
     });
@@ -272,7 +275,7 @@ describe('Juice-shop scenarios', () => {
     });
 
     // Create scenario - Add payment option
-    it.only('Add payment option', () => {
+    it('Add payment option', () => {
       // Click on Account
       HomePage.accountButton.click();
       // Click on Orders & Payment

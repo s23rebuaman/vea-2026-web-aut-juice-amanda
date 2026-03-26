@@ -8,7 +8,7 @@ export class PaymentOptionsPage extends BasePage {
   }
 
   static get paymentButton() {
-    return cy.get('#mat-radio-46-input');
+    return cy.get("mat-radio-button").eq(0);
   }
 
   static get continueButton() {

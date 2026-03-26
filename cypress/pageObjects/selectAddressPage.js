@@ -8,7 +8,7 @@ export class SelectAddressPage extends BasePage {
   }
 
   static get addressButton() {
-    return cy.get('[class="mdc-radio"]');
+    return cy.get("mat-radio-button").eq(0);
   }
 
   static get continueButton() {
