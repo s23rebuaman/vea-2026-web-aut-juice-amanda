@@ -47,7 +47,9 @@ describe('Juice-shop scenarios', () => {
       // Click on Security Question menu
       RegistrationPage.securityQuestionDropdown.click();
       // Select  "Name of your favorite pet?"
-      RegistrationPage.securityQuestionOptions.contains('Name of your favorite pet?').click();
+      RegistrationPage.securityQuestionOptions
+        .contains('Name of your favorite pet?')
+        .click();
       // Fill in answer
       RegistrationPage.answerField.type('Jack Sparrow');
       // Click Register button
@@ -77,9 +79,12 @@ describe('Juice-shop scenarios', () => {
       // Search for Lemon
       HomePage.searchField.type('Lemon{enter}');
       // Select a product card - Lemon Juice (500ml)
-      HomePage.productNames.contains("Lemon Juice (500ml)").click();
+      HomePage.productNames.contains('Lemon Juice (500ml)').click();
       // Validate that the card (should) contains "Sour but full of vitamins."
-      HomePage.productBoxInfo.should("contain.text", 'Sour but full of vitamins.');
+      HomePage.productBoxInfo.should(
+        'contain.text',
+        'Sour but full of vitamins.'
+      );
     });
 
     // Create scenario - Search 500ml and validate Lemon, while having multiple cards
@@ -89,11 +94,13 @@ describe('Juice-shop scenarios', () => {
       // Search for 500ml
       HomePage.searchField.type('500ml{enter}');
       // Select a product card - Lemon Juice (500ml)
-      HomePage.productNames.contains("Lemon Juice (500ml)").click();
+      HomePage.productNames.contains('Lemon Juice (500ml)').click();
       // Validate that the card (should) contains "Sour but full of vitamins."
-      HomePage.productBoxInfo.should("contain.text", 'Sour but full of vitamins.');
+      HomePage.productBoxInfo.should(
+        'contain.text',
+        'Sour but full of vitamins.'
+      );
     });
-    
 
     // Create scenario - Search 500ml and validate cards
     it('Search 500ml and validate cards', () => {
@@ -102,21 +109,27 @@ describe('Juice-shop scenarios', () => {
       // Search for 500ml
       HomePage.searchField.type('500ml{enter}');
       // Select a product card - Eggfruit Juice (500ml)
-      HomePage.productNames.contains("Eggfruit Juice (500ml)").click();
+      HomePage.productNames.contains('Eggfruit Juice (500ml)').click();
       // Validate that the card (should) contains "Now with even more exotic flavour."
-      HomePage.productBoxInfo.should("contain.text", 'Now with even more exotic flavour.');
+      HomePage.productBoxInfo.should(
+        'contain.text',
+        'Now with even more exotic flavour.'
+      );
       // Close the card
       HomePage.closeButton.click();
       // Select a product card - Lemon Juice (500ml)
-      HomePage.productNames.contains("Lemon Juice (500ml)").click();
+      HomePage.productNames.contains('Lemon Juice (500ml)').click();
       // Validate that the card (should) contains "Sour but full of vitamins."
-      HomePage.productBoxInfo.should("contain.text", 'Sour but full of vitamins.');
+      HomePage.productBoxInfo.should(
+        'contain.text',
+        'Sour but full of vitamins.'
+      );
       // Close the card
       HomePage.closeButton.click();
       // Select a product card - Strawberry Juice (500ml)
-      HomePage.productNames.contains("Strawberry Juice (500ml)").click();
+      HomePage.productNames.contains('Strawberry Juice (500ml)').click();
       // Validate that the card (should) contains "Sweet & tasty!"
-      HomePage.productBoxInfo.should("contain.text", 'Sweet & tasty!');
+      HomePage.productBoxInfo.should('contain.text', 'Sweet & tasty!');
     });
 
     // Create scenario - Read a review
@@ -126,26 +139,34 @@ describe('Juice-shop scenarios', () => {
       // Search for King
       HomePage.searchField.type('King{enter}');
       // Select a product card - OWASP Juice Shop "King of the Hill" Facemask
-      HomePage.productNames.contains('OWASP Juice Shop "King of the Hill" Facemask').click();
+      HomePage.productNames
+        .contains('OWASP Juice Shop "King of the Hill" Facemask')
+        .click();
       // Click expand reviews button/icon (wait for reviews to appear)
       HomePage.expandReviews.click();
       // Validate review - K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!
-      HomePage.reviewBoxInfo.should('contain.text', 'K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!');
+      HomePage.reviewBoxInfo.should(
+        'contain.text',
+        'K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!'
+      );
     });
 
     // Create scenario - Add a review
     it.only('Add a review', () => {
-    // Click on search icon
-    HomePage.searchIcon.click();
-    // Search for Raspberry
-    HomePage.searchField.type('Raspberry{enter}');
-    // Select a product card - Raspberry Juice (1000ml)
-    HomePage.productNames.contains("Raspberry Juice (1000ml)").click();
-    // Type in review - "Tastes like metal"
-    HomePage.reviewField.type("Tastes like metal");
-    // Click Submit
-    // Click expand reviews button/icon (wait for reviews to appear)
-    // Validate review -  "Tastes like metal"
+      // Click on search icon
+      HomePage.searchIcon.click();
+      // Search for Raspberry
+      HomePage.searchField.type('Raspberry{enter}');
+      // Select a product card - Raspberry Juice (1000ml)
+      HomePage.productNames.contains('Raspberry Juice (1000ml)').click();
+      // Type in review - "Tastes like metal"
+      HomePage.reviewField.type('Tastes like metal');
+      // Click Submit
+      HomePage.submitButton.click();
+      // Click expand reviews button/icon (wait for reviews to appear)
+      HomePage.expandReviews.click();
+      // Validate review -  "Tastes like metal"
+      HomePage.reviewBoxInfo.should('contain.text', 'Tastes like metal');
     });
 
     // Create scenario - Validate product card amount

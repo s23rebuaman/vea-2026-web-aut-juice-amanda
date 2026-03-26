@@ -56,6 +56,10 @@ export class HomePage extends BasePage {
   }
 
   static get reviewField() {
-    return cy.get('[aria-label="Text field to review a product"]');
+    return cy.get('textarea[aria-label="Text field to review a product"]');
+  }
+
+  static get submitButton() {
+    return cy.get('#submitButton');
   }
 }
