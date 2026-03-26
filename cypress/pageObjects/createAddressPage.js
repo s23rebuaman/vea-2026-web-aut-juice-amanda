@@ -37,7 +37,7 @@ export class CreateAddressPage extends BasePage {
     return cy.get('#submitButton');
   }
 
-  static get mySavedAddressesBoxInfo(){
+  static get mySavedAddressesBoxInfo() {
     return cy.get('[class="mdc-card"]');
   }
 }

@@ -8,6 +8,7 @@ import { OrderSummaryPage } from '../pageObjects/orderSummaryPage';
 import { PaymentOptionsPage } from '../pageObjects/paymentOptionsPage';
 import { RegistrationPage } from '../pageObjects/registrationPage';
 import { SavedAddressesPage } from '../pageObjects/savedAddressesPage';
+import { SavedPaymentMethodsPage } from '../pageObjects/savedPaymentMethodsPage';
 import { SelectAddressPage } from '../pageObjects/selectAddressPage';
 
 describe('Juice-shop scenarios', () => {
@@ -265,22 +266,30 @@ describe('Juice-shop scenarios', () => {
       CreateAddressPage.submitButton.click();
       // Validate that previously added address is visible
       CreateAddressPage.mySavedAddressesBoxInfo.should(
-        "contain.text",
+        'contain.text',
         'Alice Wonderland'
       );
     });
 
     // Create scenario - Add payment option
-    // Click on Account
-    // Click on Orders & Payment
-    // Click on My payment options
-    // Create page object - SavedPaymentMethodsPage
-    // Click Add new card
-    // Fill in Name
-    // Fill in Card Number
-    // Set expiry month to 7
-    // Set expiry year to 2090
-    // Click Submit button
-    // Validate that the card shows up in the list
+    it.only('Add payment option', () => {
+      // Click on Account
+      HomePage.accountButton.click();
+      // Click on Orders & Payment
+      HomePage.ordersAndPaymentButton.click();
+      // Click on My payment options
+      HomePage.myPaymentOptionsButton.click();
+      // Create page object - SavedPaymentMethodsPage
+      // Click Add new card
+      SavedPaymentMethodsPage.addNewCardButton.click();
+      // Fill in Name
+      SavedPaymentMethodsPage.nameField.type('Alice');
+      // Fill in Card Number
+      
+      // Set expiry month to 7
+      // Set expiry year to 2090
+      // Click Submit button
+      // Validate that the card shows up in the list
+    });
   });
 });
