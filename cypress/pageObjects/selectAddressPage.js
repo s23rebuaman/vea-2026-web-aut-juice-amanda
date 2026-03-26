@@ -1,7 +1,6 @@
 import { BasePage } from '../pageObjects/basePage';
 
 export class SelectAddressPage extends BasePage {
-
   static get checkoutBoxInfo() {
     return cy.get(
       '[class="mat-mdc-row mdc-data-table__row cdk-row ng-star-inserted"]'
@@ -12,7 +11,7 @@ export class SelectAddressPage extends BasePage {
     return cy.get('[class="mdc-radio"]');
   }
 
-  static get continueButton(){
+  static get continueButton() {
     return cy.get('button[aria-label="Proceed to payment selection"]');
   }
 }
