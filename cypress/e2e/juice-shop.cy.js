@@ -1,6 +1,8 @@
+import { BasketPage } from '../pageObjects/basketPage';
 import { HomePage } from '../pageObjects/HomePage';
 import { LoginPage } from '../pageObjects/loginPage';
 import { RegistrationPage } from '../pageObjects/registrationPage';
+import { SelectAddressPage } from '../pageObjects/selectAddressPage';
 
 describe('Juice-shop scenarios', () => {
   context('Without auto login', () => {
@@ -194,10 +196,17 @@ describe('Juice-shop scenarios', () => {
       // Add to basket "Girlie"
       HomePage.addToBasketButton.click();
       // Click on "Your Basket" button
+      HomePage.yourBasketButton.click();
       // Create page object - BasketPage
       // Click on "Checkout" button
+      BasketPage.checkoutButton.click();
       // Create page object - SelectAddressPage
       // Select address containing "United Fakedom"
+      SelectAddressPage.checkoutBoxInfo.should(
+        'contain.text',
+        'United Fakedom'
+      );
+      SelectAddressPage.addressButton.click();
       // Click Continue button
       // Create page object - DeliveryMethodPage
       // Select delivery speed Standard Delivery
